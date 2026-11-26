@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Satyanarayan Sharma — Backend & AI Engineer</title>
 <meta name="description" content="Backend tech lead building production AI agents, RAG and MCP integrations with access control in the data layer. Python, Django, FastAPI, LangGraph, AWS.">
+<link rel="canonical" href="https://satya29822.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2318212B'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='%23EEF1F4' text-anchor='middle'%3ESS%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://satya29822.github.io/">
+<meta property="og:title" content="Satyanarayan Sharma — Backend & AI Engineer">
+<meta property="og:description" content="I build AI agents that only see what they're allowed to see. 6 years in Python, 3 shipping LLM systems: RAG, LangGraph agents, MCP. Mumbai, available immediately.">
+<meta property="og:image" content="https://satya29822.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -39,6 +49,8 @@
   .btn.ghost{border:1.5px solid var(--ink);color:var(--ink)}
   .btn.ghost:hover{border-color:var(--indigo);color:var(--indigo)}
   .actions .plain{font-size:15px;margin-left:6px}
+  .seeking{margin:26px 0 0;padding-top:16px;border-top:1px solid var(--rule);font-size:15px;color:var(--slate);max-width:52ch}
+  .seeking strong{color:var(--ink);font-weight:600}
 
   /* trace: the one bold element */
   .trace{margin:0;background:var(--ink);color:#E6EAF0;border-radius:14px;padding:22px 22px 18px;font-family:var(--mono);font-size:13.5px;line-height:1.75;box-shadow:0 30px 60px -30px rgba(24,33,43,.55)}
@@ -139,6 +151,7 @@
           <a class="plain" href="https://github.com/satya29822">GitHub</a>
           <a class="plain" href="https://www.linkedin.com/in/satyanarayan-sharma">LinkedIn</a>
         </div>
+        <p class="seeking"><strong>Looking for:</strong> Gen AI or AI engineering lead roles, or senior backend roles with an AI focus. Mumbai, Pune or remote. Can join immediately.</p>
       </div>
 
       <figure class="trace play" aria-label="Example run of an AI analyst agent">
@@ -235,6 +248,36 @@
           <li>OpenAI and AWS Bedrock behind one gateway</li>
         </ul>
         <p style="margin-top:14px"><a href="https://github.com/satya29822">Follow progress on GitHub</a></p>
+      </div>
+    </section>
+
+    <section id="side" aria-labelledby="side-h">
+      <h2 id="side-h">Side projects</h2>
+      <p class="intro">Things I built on my own time.</p>
+      <div class="work">
+        <article class="project">
+          <div>
+            <h3>Travel reimbursement approval agent</h3>
+            <p class="role">Solo project, <a href="https://github.com/satya29822/hcltech-genai">code on GitHub</a></p>
+            <p class="stack">Python, OpenAI-compatible tool calling, BM25, Groq, Gemini, Ollama</p>
+          </div>
+          <div>
+            <p>An agent that reviews expense claims against a travel policy and returns a policy-cited decision: approve, partially approve, reject or send to manual review, with a full audit trail. It runs on Groq, Gemini, Ollama or OpenAI, and falls back to a rules-only mode with no API key.</p>
+            <div class="decision"><strong>The decision</strong>The model chooses which checks to run, but code does every calculation, and a guardrail can only escalate a decision to manual review, never relax it. Invented amounts or rule IDs are sent back to the model to correct.</div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div>
+            <h3>Apply Copilot</h3>
+            <p class="role">Solo project, Chrome extension</p>
+            <p class="stack">JavaScript, Chrome Manifest V3, JSON-LD parsing</p>
+          </div>
+          <div>
+            <p>A browser extension I use in my own job search. It reads job postings on LinkedIn, Naukri, Indeed, Greenhouse, Lever, Ashby, Wellfound and Workday, scores each one against my profile, fills in application forms and keeps a tracker with CSV export.</p>
+            <div class="decision"><strong>The decision</strong>Scoring runs locally in the browser, and autofill stops before the submit button, so a person always reviews and sends the application.</div>
+          </div>
+        </article>
       </div>
     </section>
 
