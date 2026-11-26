@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Satyanarayan Sharma — Backend & AI Engineer</title>
+<meta name="description" content="Backend tech lead building production AI agents, RAG and MCP integrations with access control in the data layer. Python, Django, FastAPI, LangGraph, AWS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --fog:#EEF1F4; --panel:#FFFFFF; --ink:#18212B; --slate:#566170; --rule:#D5DBE2;
+    --indigo:#3B3FA0; --allow:#2E7D4F; --deny:#B4432F;
+    --sans:"Instrument Sans", system-ui, sans-serif; --mono:"JetBrains Mono", ui-monospace, monospace;
+    --measure:68ch;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--fog);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--indigo);text-underline-offset:3px}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--indigo);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+  /* header */
+  header.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+  .who{font-weight:600;font-size:16px;color:var(--ink);text-decoration:none}
+  nav a{color:var(--slate);text-decoration:none;margin-left:22px;font-size:15px}
+  nav a:hover{color:var(--ink)}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding:56px 0 88px}
+  .hero h1{font-size:clamp(38px,5.2vw,62px);line-height:1.04;letter-spacing:-0.025em;font-weight:700;margin:0 0 22px;max-width:14ch}
+  .hero p.lede{font-size:19px;color:var(--slate);max-width:46ch;margin:0 0 30px}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .btn{display:inline-block;padding:12px 20px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none}
+  .btn.primary{background:var(--ink);color:#fff}
+  .btn.primary:hover{background:var(--indigo)}
+  .btn.ghost{border:1.5px solid var(--ink);color:var(--ink)}
+  .btn.ghost:hover{border-color:var(--indigo);color:var(--indigo)}
+  .actions .plain{font-size:15px;margin-left:6px}
+
+  /* trace: the one bold element */
+  .trace{margin:0;background:var(--ink);color:#E6EAF0;border-radius:14px;padding:22px 22px 18px;font-family:var(--mono);font-size:13.5px;line-height:1.75;box-shadow:0 30px 60px -30px rgba(24,33,43,.55)}
+  .trace ol{list-style:none;margin:0;padding:0}
+  .trace li{display:grid;grid-template-columns:62px 1fr;gap:10px}
+  .trace .k{color:#8E9AAB}
+  .trace .q{color:#fff}
+  .trace .ok{color:#7FD3A1}
+  .trace .no{color:#F2A08F}
+  .trace .t{color:#8E9AAB;float:right}
+  .trace figcaption{font-family:var(--sans);font-size:12.5px;color:#8E9AAB;margin-top:14px;border-top:1px solid #2C3744;padding-top:10px}
+  @media (prefers-reduced-motion:no-preference){
+    .trace.play li{opacity:0;transform:translateY(4px);animation:in .35s ease forwards}
+    .trace.play li:nth-child(1){animation-delay:.15s}.trace.play li:nth-child(2){animation-delay:.45s}
+    .trace.play li:nth-child(3){animation-delay:.75s}.trace.play li:nth-child(4){animation-delay:1.05s}
+    .trace.play li:nth-child(5){animation-delay:1.35s}.trace.play li:nth-child(6){animation-delay:1.65s}
+    .trace.play li:nth-child(7){animation-delay:1.95s}
+    @keyframes in{to{opacity:1;transform:none}}
+  }
+
+  /* sections */
+  section{padding:72px 0;border-top:1px solid var(--rule)}
+  h2{font-size:30px;letter-spacing:-0.015em;line-height:1.15;margin:0 0 10px}
+  .intro{color:var(--slate);max-width:var(--measure);margin:0 0 36px}
+
+  /* work list: rows, not cards */
+  .work{display:grid;gap:0}
+  .project{display:grid;grid-template-columns:260px 1fr;gap:36px;padding:28px 0;border-top:1px solid var(--rule)}
+  .project:first-child{border-top:0;padding-top:4px}
+  .project h3{font-size:21px;margin:0 0 4px;line-height:1.25}
+  .project .role{color:var(--slate);font-size:14.5px;margin:0}
+  .project .stack{color:var(--slate);font-size:14px;margin:10px 0 0}
+  .project p{margin:0 0 10px;max-width:var(--measure)}
+  .decision{border-left:3px solid var(--indigo);padding:2px 0 2px 14px;margin-top:12px;max-width:var(--measure)}
+  .decision strong{display:block;font-size:14px;color:var(--indigo);margin-bottom:2px}
+
+  /* timeline: a real sequence */
+  .timeline{list-style:none;margin:0;padding:0;max-width:820px}
+  .timeline li{display:grid;grid-template-columns:170px 1fr;gap:28px;padding:16px 0;border-top:1px solid var(--rule)}
+  .timeline li:first-child{border-top:0}
+  .when{color:var(--slate);font-size:15px;font-variant-numeric:tabular-nums}
+  .timeline h3{font-size:17px;margin:0 0 2px}
+  .timeline p{margin:0;color:var(--slate);max-width:60ch}
+
+  /* skills */
+  .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 40px}
+  .skills h3{font-size:16px;margin:0 0 6px}
+  .skills p{margin:0;color:var(--slate);font-size:15.5px}
+
+  /* now building */
+  .now{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:30px;max-width:820px}
+  .now h3{margin:0 0 8px;font-size:21px}
+  .now p{margin:0 0 10px;max-width:var(--measure)}
+  .now ul{margin:8px 0 0;padding-left:20px}
+  .now li{margin:4px 0}
+
+  /* contact */
+  .contact h2{font-size:clamp(30px,4vw,44px);max-width:20ch}
+  footer{padding:28px 0 48px;color:var(--slate);font-size:14px;border-top:1px solid var(--rule)}
+
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr;gap:36px;padding:32px 0 64px}
+    .project{grid-template-columns:1fr;gap:10px}
+    .skills{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:560px){
+    body{font-size:16px}
+    .wrap{padding:0 20px}
+    nav a{margin-left:14px;font-size:14px}
+    nav a.hide-sm{display:none}
+    .timeline li{grid-template-columns:1fr;gap:2px}
+    .skills{grid-template-columns:1fr}
+    .trace{font-size:12px;padding:18px 16px 14px}
+    .trace li{grid-template-columns:52px 1fr}
+    section{padding:56px 0}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="who" href="#top">Satyanarayan Sharma</a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#path" class="hide-sm">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <h1>I build AI agents that only see what they're allowed to see.</h1>
+        <p class="lede">Backend tech lead with 6 years in Python, 3 of them shipping LLM systems to real users: RAG, LangGraph agents and MCP, with access control enforced in the data layer. Based in Thane, Mumbai. Available to join immediately.</p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:sns.sharma6@gmail.com">Email me</a>
+          <a class="btn ghost" href="resume.pdf">Download résumé (PDF)</a>
+          <a class="plain" href="https://github.com/satya29822">GitHub</a>
+          <a class="plain" href="https://www.linkedin.com/in/satyanarayan-sharma">LinkedIn</a>
+        </div>
+      </div>
+
+      <figure class="trace play" aria-label="Example run of an AI analyst agent">
+        <ol>
+          <li><span class="k">ask</span><span class="q">"Which customers are 60+ days overdue, and why is Q3 sales down?"</span></li>
+          <li><span class="k">auth</span><span>role sales_manager, tenant acme</span></li>
+          <li><span class="k">tools</span><span><span class="ok">sql_readonly, docs_search</span> loaded; <span class="no">payroll not loaded</span></span></li>
+          <li><span class="k">plan</span><span>2 sub-questions, run in parallel</span></li>
+          <li><span class="k">sql</span><span>read-only replica, 214 rows <span class="t">182 ms</span></span></li>
+          <li><span class="k">verify</span><span><span class="ok">totals reconcile with ledger</span></span></li>
+          <li><span class="k">answer</span><span>12 customers overdue, 3 cited queries</span></li>
+        </ol>
+        <figcaption>An example run of the kind of agent I design. The data is illustrative.</figcaption>
+      </figure>
+    </div>
+
+    <section id="work" aria-labelledby="work-h">
+      <h2 id="work-h">Work in production</h2>
+      <p class="intro">Client systems I designed or led at Arcitech. Each one includes the decision I'd point to if you asked "why was it built this way?"</p>
+
+      <div class="work">
+        <article class="project">
+          <div>
+            <h3>ProSchool AI</h3>
+            <p class="role">Developer to backend lead</p>
+            <p class="stack">Django, Channels, Celery, LangChain, OpenAI, Claude, pgvector, AWS</p>
+          </div>
+          <div>
+            <p>A multi-tenant AI e-learning platform, taken from development to production on AWS with 3 school tenants live. Teachers generate lessons, PDFs and images through tool-calling chat agents that stream over WebSockets; grading and questions are grounded in course material with citations.</p>
+            <div class="decision"><strong>The decision</strong>Hash-based incremental re-indexing on a dedicated Celery queue, so a changed file re-embeds only what changed, and the model per feature is switchable from the database without a deploy.</div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div>
+            <h3>Braen-Stone AI analyst</h3>
+            <p class="role">Tech lead, system design</p>
+            <p class="stack">Django, SQL Server, LangGraph, pgvector, Celery</p>
+          </div>
+          <div>
+            <p>An AI analyst over an AR, AP and sales analytics platform that answers finance questions in plain English, with cited figures.</p>
+            <div class="decision"><strong>The decision</strong>Moved from single-shot text-to-SQL to a checkpointed LangGraph engine with parallel sub-questions and SQL validation. The agent never touches production: it reads a synced replica with read-only access.</div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div>
+            <h3>Braen-Repo</h3>
+            <p class="role">Tech lead</p>
+            <p class="stack">Django, pgvector, Microsoft Graph, Celery</p>
+          </div>
+          <div>
+            <p>Document and email intelligence over OneDrive files and Outlook mail, with role-based access and fuzzy metadata filters.</p>
+            <div class="decision"><strong>The decision</strong>Hybrid retrieval: HNSW cosine search plus full-text search, so exact terms like invoice numbers are found as reliably as meaning.</div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div>
+            <h3>Roberts &amp; Son</h3>
+            <p class="role">Tech lead</p>
+            <p class="stack">Django, LangGraph, Playwright, React</p>
+          </div>
+          <div>
+            <p>A parts-distribution platform with AI support agents: a ticket-resolution agent, specialist SQL agents, 60 vendor-catalogue scrapers and fuzzy parts search. Phase one went live in October 2026.</p>
+            <div class="decision"><strong>The decision</strong>Database and web agents run in parallel with a timeout per node, so one slow source can't stall the whole answer.</div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div>
+            <h3>Aufgang compliance assistant</h3>
+            <p class="role">Head of backend</p>
+            <p class="stack">Python, FastAPI, PostgreSQL, MongoDB, Revit plugin</p>
+          </div>
+          <div>
+            <p>An AI chatbot inside Autodesk Revit: engineers pick a module and run compliance checks on their project models.</p>
+            <div class="decision"><strong>The decision</strong>Real-time sync of 2 TB of project files from engineers' machines to the server with Python watchdog, so every answer uses the current model, not last night's copy.</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="now-h">
+      <h2 id="now-h">Building now</h2>
+      <p class="intro">A public project, so you can read the code rather than take my word for it.</p>
+      <div class="now">
+        <h3>Policy-aware enterprise agent</h3>
+        <p>An assistant that answers employee questions over SQL, project documents and Google Drive, where each role sees only what it's allowed to.</p>
+        <ul>
+          <li>Row-level security in Postgres, project filters in vector search, and my own MCP server for Drive</li>
+          <li>LangGraph router with a step cap and a deterministic verify step</li>
+          <li>Eval suite in CI: SQL execution accuracy, faithfulness and permission tests</li>
+          <li>OpenAI and AWS Bedrock behind one gateway</li>
+        </ul>
+        <p style="margin-top:14px"><a href="https://github.com/satya29822">Follow progress on GitHub</a></p>
+      </div>
+    </section>
+
+    <section id="path" aria-labelledby="path-h">
+      <h2 id="path-h">How I got here</h2>
+      <p class="intro">From PHP developer to tech lead at the same company in a little over three years. Employee of the Year 2024 at Arcitech, for leading AI product delivery and mentoring 5 developers into AI work.</p>
+      <ol class="timeline">
+        <li><span class="when">Oct 2025 – Nov 2026</span><div><h3>Tech Lead, Arcitech</h3><p>System design and delivery of three client AI products; integrated MCP with LLM agents for permission-scoped tool access.</p></div></li>
+        <li><span class="when">Jan – Oct 2025</span><div><h3>Head of Backend, Arcitech</h3><p>Architecture, engineering practices and code review across client products.</p></div></li>
+        <li><span class="when">Sep 2024 – Jan 2025</span><div><h3>Backend Lead Developer, Arcitech</h3><p>Took ProSchool AI to production and introduced LangChain, LLMs and AWS to the team.</p></div></li>
+        <li><span class="when">Aug 2023 – Aug 2024</span><div><h3>Full-Stack Developer, Arcitech</h3><p>Built role-aware chat agents and the real-time layer on Django Channels.</p></div></li>
+        <li><span class="when">Jul 2022 – Aug 2023</span><div><h3>PHP Developer, Arcitech</h3><p>AllTalent booking platform serving 100,000+ monthly API requests.</p></div></li>
+        <li><span class="when">Jun 2021 – Jun 2022</span><div><h3>PHP Developer, CEDP Skill Institute</h3><p>Extended the institute's ERP and built a job portal handling 1,000+ daily applications.</p></div></li>
+        <li><span class="when">Oct 2020 – Jun 2021</span><div><h3>Laravel Developer Intern, Northstar Innovations</h3><p>Real-time analytics dashboard and a stock-trend analysis tool.</p></div></li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="skills-h">
+      <h2 id="skills-h">What I work with</h2>
+      <div class="skills" style="margin-top:28px">
+        <div><h3>Applied AI</h3><p>LangGraph, LangChain, LlamaIndex, OpenAI and Claude APIs, RAG, tool calling, MCP, embeddings, prompt engineering</p></div>
+        <div><h3>Backend</h3><p>Python, Django, FastAPI, REST, GraphQL, WebSockets, Celery, microservices</p></div>
+        <div><h3>Data</h3><p>PostgreSQL with pgvector, MySQL, SQL Server, Redis, RabbitMQ, Kafka</p></div>
+        <div><h3>Cloud and delivery</h3><p>AWS (EC2, ECS, Lambda, S3, VPC, Route 53), Docker, Nginx, CodeBuild, CodeDeploy</p></div>
+        <div><h3>Security</h3><p>JWT, OAuth2, role-based access, multi-tenant isolation, read-only agent access, Semgrep, Trivy</p></div>
+        <div><h3>Leadership</h3><p>Architecture, system design, hiring, mentoring, code review</p></div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-h">
+      <h2 id="contact-h">Hiring for AI or backend engineering? Let's talk.</h2>
+      <p class="intro">I reply to email within a day.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:sns.sharma6@gmail.com">Email sns.sharma6@gmail.com</a>
+        <a class="plain" href="https://www.linkedin.com/in/satyanarayan-sharma">LinkedIn</a>
+        <a class="plain" href="https://github.com/satya29822">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>B.E. Information Technology, K.C. College of Engineering, Thane (2021). This site is a single HTML file hosted on GitHub Pages.</footer>
+</div>
+</body>
+</html>
